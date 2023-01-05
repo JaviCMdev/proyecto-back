@@ -1,13 +1,13 @@
 const express = require('express');
 const dbconnect = require('./db/dbconnect');
-// const router = require('./router');
+const router = require('./router');
 
 const app = express();
 
 const PORT = 5500;
 
 app.use(express.json());
-// app.use(router);
+app.use(router);
 
 dbconnect();
 
