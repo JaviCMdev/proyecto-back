@@ -80,4 +80,76 @@ MoviesController.deleteMovie = async (req, res) => {
     }
 };
 
+MoviesController.getMovieByName = async (req, res) => {
+
+    let title = req.body.title;
+
+    try {
+
+        await Movie.find({
+            title: title
+        })
+            .then(foundMovie => {
+                res.send(foundMovie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+MoviesController.getMovieByGenre = async (req, res) => {
+
+    let genre = req.body.genre;
+
+    try {
+
+        await Movie.find({
+            genre: genre
+        })
+            .then(foundMovie => {
+                res.send(foundMovie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+MoviesController.getMovieById = async (req, res) => {
+
+    let _id = req.body._id;
+
+    try {
+
+        await Movie.find({
+            _id: _id
+        })
+            .then(foundMovie => {
+                res.send(foundMovie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+MoviesController.getMovieByTopRating = async (req, res) => {
+
+    let rating = req.body.rating;
+
+    try {
+
+        await Movie.find({
+            rating: 5
+        })
+            .then(foundMovie => {
+                res.send(foundMovie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = MoviesController;
