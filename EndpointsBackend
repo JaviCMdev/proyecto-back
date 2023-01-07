@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "0f1cc8f2-a27e-4043-8220-8d50e98c7894",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Patatita\",\r\n    \"email\":\"patata@gmail.com\",\r\n    \"password\":\"patata12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/users/newuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"users",
+						"newuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Loguear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"puquitas@gmail.com\",\r\n    \"password\":\"packardbell\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar Peliculas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Pelicula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Soy leyenda\",\r\n    \"duration\":101,\r\n    \"genre\":\"Drama\",\r\n    \"year\":2007,\r\n    \"rating\":5,\r\n    \"description\":\"En el año 2009, después de que la doctora Alice Krippin modificara genéticamente un virus del sarampión como cura para el cáncer, dicho virus mutó, generando una extraña pandemia. El Teniente Coronel Robert Neville, un virólogo del Ejército de Estados Unidos, queda como el último humano sin contagiar en la ciudad de Nueva York y, posiblemente, en el mundo entero.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/newmovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"newmovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Pelicula Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Interstellar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/name/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Pelicula Genero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"genre\":\"Ciencia ficcion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/genre/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"genre",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Pelicula ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"63b6cb46201608515374590b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/id/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"id",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Pelicula Top Rated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/movies/toprated/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"movies",
+						"toprated",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar Series",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5500/series/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Serie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"The Witcher\",\r\n    \"duration\":40,\r\n    \"broadcast\":true,\r\n    \"theater\":false,\r\n    \"genre\":\"Fantasia\",\r\n    \"year\":2019,\r\n    \"rating\":2,\r\n    \"description\":\"Geralt de Rivia es un brujo, mutado durante su infancia para ser más efectivo en su labor, matar monstruos por dinero. El continente se encuentra en un estado de caos debido a las ansias del Imperio de Nilfgaard por ampliar su territorio. Entre los refugiados de esta lucha se encuentra la princesa Cirilla de Cintra, conocida como Ciri, que es constantemente perseguida por Nilfgaard debido al secreto poder que posee. Debido al destino, Geralt y Ciri están unidos para siempre desde antes del nacimiento de esta. Durante sus viajes Geralt conoce a Jaskier, un trovador demasiado hablador, y a Yennefer de Vengerberg, una poderosa hechicera.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/newserie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"newserie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Serie Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Los Simpson\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/name/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Serie ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"63b965d3f3845601a39f55b6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/id/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"id",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Serie Top Rated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/toprated/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"toprated",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Serie Emision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"broadcast\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/broadcast/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"broadcast",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obt. Serie Cine",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"theater\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5500/series/theater/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5500",
+					"path": [
+						"series",
+						"theater",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
