@@ -16,32 +16,32 @@
 - Serie: Titulo, duracion, en emision, version en cine, año estreno, rating(opcional), descripcion(opcional).
 
 **Endpoints Usuario**
-router.post("/login", UsersController.loginUser);
-router.post("/newUser", UsersController.newUser);
-router.get("/getAll", UsersController.getAllUsers);
-router.put("/updateUser", UsersController.updateUser);
-router.delete("/deleteUser", UsersController.deleteUser);
+- router.post("/login", UsersController.loginUser);
+- router.post("/newUser", UsersController.newUser);
+- router.get("/getAll", UsersController.getAllUsers);
+- router.put("/updateUser", UsersController.updateUser);
+- router.delete("/deleteUser", UsersController.deleteUser);
 
 **Endpoints Peliculas**
-router.get("/getAll", MoviesController.getAllMovies);
-router.post("/newMovie", MoviesController.newMovie);
-router.put("/updateMovie", MoviesController.updateMovie);
-router.delete("/deleteMovie", MoviesController.deleteMovie);
-router.post("/name/", MoviesController.getMovieByName);
-router.post("/genre/", MoviesController.getMovieByGenre);
-router.post("/id/", MoviesController.getMovieById);
-router.post("/toprated/", MoviesController.getMovieByTopRating);
+- router.get("/getAll", MoviesController.getAllMovies);
+- router.post("/newMovie", MoviesController.newMovie);
+- router.put("/updateMovie", MoviesController.updateMovie);
+- router.delete("/deleteMovie", MoviesController.deleteMovie);
+- router.post("/name/", MoviesController.getMovieByName);
+- router.post("/genre/", MoviesController.getMovieByGenre);
+- router.post("/id/", MoviesController.getMovieById);
+- router.post("/toprated/", MoviesController.getMovieByTopRating);
 
 **Endpoints Series**
-router.get("/getAll", SeriesController.getAllSeries);
-router.post("/newSerie", SeriesController.newSerie);
-router.put("/updateSerie", SeriesController.updateSerie);
-router.delete("/deleteSerie", SeriesController.deleteSerie);
-router.post("/name/", SeriesController.getSerieByName);
-router.post("/id/", SeriesController.getSerieById);
-router.post("/toprated/", SeriesController.getSerieByTopRating);
-router.post("/broadcast/", SeriesController.getSerieByBroadcast);
-router.post("/theater/", SeriesController.getSerieByTheater);
+- router.get("/getAll", SeriesController.getAllSeries);
+- router.post("/newSerie", SeriesController.newSerie);
+- router.put("/updateSerie", SeriesController.updateSerie);
+- router.delete("/deleteSerie", SeriesController.deleteSerie);
+- router.post("/name/", SeriesController.getSerieByName);
+- router.post("/id/", SeriesController.getSerieById);
+- router.post("/toprated/", SeriesController.getSerieByTopRating);
+- router.post("/broadcast/", SeriesController.getSerieByBroadcast);
+- router.post("/theater/", SeriesController.getSerieByTheater);
 
 **Breve explicacion endpoints**
 - Creacion usuario: Usando la direccion "http://localhost:5500/users/newuser" podemos hacer un post para crear un usuario en formato JSON con los datos necesarios (name, email, password).
