@@ -136,8 +136,6 @@ MoviesController.getMovieById = async (req, res) => {
 
 MoviesController.getMovieByTopRating = async (req, res) => {
 
-    let rating = req.body.rating;
-
     try {
 
         await Movie.find({

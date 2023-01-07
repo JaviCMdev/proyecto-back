@@ -86,4 +86,88 @@ SeriesController.deleteSerie = async (req, res) => {
     }
 };
 
+SeriesController.getSerieByName = async (req, res) => {
+
+    let title = req.body.title;
+
+    try {
+
+        await Serie.find({
+            title: title
+        })
+            .then(foundSerie => {
+                res.send(foundSerie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+SeriesController.getSerieById = async (req, res) => {
+
+    let _id = req.body._id;
+
+    try {
+
+        await Serie.find({
+            _id: _id
+        })
+            .then(foundSerie => {
+                res.send(foundSerie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+SeriesController.getSerieByTopRating = async (req, res) => {
+
+    try {
+
+        await Serie.find({
+            rating: 5
+        })
+            .then(foundSerie => {
+                res.send(foundSerie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+SeriesController.getSerieByBroadcast = async (req, res) => {
+
+    try {
+
+        await Serie.find({
+            broadcast: true
+        })
+            .then(foundSerie => {
+                res.send(foundSerie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+SeriesController.getSerieByTheater = async (req, res) => {
+
+    try {
+
+        await Serie.find({
+            theater: true
+        })
+            .then(foundSerie => {
+                res.send(foundSerie)
+            })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = SeriesController;
