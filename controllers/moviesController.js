@@ -28,7 +28,7 @@ MoviesController.newMovie = async (req, res) => {
             description: req.body.description
         })
         if (movie) {
-            res.send({ "Message": `La pelicula: ${movie.tittle} ha sido añadida correctamente` })
+            res.send({ "Message": `La pelicula: ${movie.title} ha sido añadida correctamente` })
         }
     } catch (error) {
         console.log(error)
@@ -73,7 +73,7 @@ MoviesController.deleteMovie = async (req, res) => {
             _id: _id
         })
         if (deleted) {
-            res.send({ "Message": `La pelicula: ${deleted.tittle} ha sido eliminada` })
+            res.send({ "Message": `La pelicula: ${deleted.title} ha sido eliminada` })
         }
     } catch (error) {
         console.log("Error al borrar la pelicula", error);
