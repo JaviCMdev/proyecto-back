@@ -88,13 +88,17 @@ SeriesController.deleteSerie = async (req, res) => {
 
 SeriesController.getSerieByName = async (req, res) => {
 
-    let title = req.body.title;
+    let title = req.params.title;
+    // cambiar body por query para hacer el get, o no.
 
     try {
 
-        await Serie.find({
-            title: title
-        })
+         await //Serie.find({
+        //     title: title
+        // })
+        Serie.find({ 
+            title: { "$regex": title, "$options": "i" } })
+            
             .then(foundSerie => {
                 res.send(foundSerie)
             })

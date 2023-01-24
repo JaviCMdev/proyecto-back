@@ -8,7 +8,7 @@ router.get("/getAll", SeriesController.getAllSeries);
 router.post("/newSerie", SeriesController.newSerie);
 router.put("/updateSerie", SeriesController.updateSerie);
 router.delete("/deleteSerie", SeriesController.deleteSerie);
-router.post("/name/", SeriesController.getSerieByName);
+router.get("/name/:title", SeriesController.getSerieByName);
 router.post("/id/", SeriesController.getSerieById);
 router.post("/toprated/", SeriesController.getSerieByTopRating);
 router.post("/broadcast/", SeriesController.getSerieByBroadcast);

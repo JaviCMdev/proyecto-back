@@ -130,7 +130,8 @@ UsersController.loginUser = async (req, res) => {
                     let loginOk = `Bienvenido de nuevo, ${userFound[0].name}`;
                     res.json({
                         loginOk,
-                        token: token
+                        token: token,
+                        userFound: userFound
                     })
 
                 } else {
