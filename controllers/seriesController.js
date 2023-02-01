@@ -86,23 +86,19 @@ SeriesController.deleteSerie = async (req, res) => {
     }
 };
 
-SeriesController.getSerieByName = async (req, res) => {
+SeriesController.getSerieByNameOrGenre = async (req, res) => {
 
-    let title = req.params.title;
-    // cambiar body por query para hacer el get, o no.
-
+    const { title, genre } = req.query
     try {
-
-         await //Serie.find({
-        //     title: title
-        // })
-        Serie.find({ 
-            title: { "$regex": title, "$options": "i" } })
-            
-            .then(foundSerie => {
-                res.send(foundSerie)
-            })
-
+        let foundSerie = await Serie.find({
+            title: title,
+            genre: genre
+        })
+        if (foundSerie.length > 0) {
+            res.send(foundSerie)
+        } else {
+            res.send({ "Message": "Titulo o genero no encontrados" })
+        }
     } catch (error) {
         console.log(error);
     }
@@ -110,16 +106,17 @@ SeriesController.getSerieByName = async (req, res) => {
 
 SeriesController.getSerieById = async (req, res) => {
 
-    let _id = req.body._id;
+    let _id = req.params._id;
 
     try {
-
-        await Serie.find({
+        let foundSerie = await Serie.find({
             _id: _id
         })
-            .then(foundSerie => {
-                res.send(foundSerie)
-            })
+        if (foundSerie.length > 0) {
+            res.send(foundSerie)
+        } else {
+            res.send({ "Message": "Titulo no encontrados" })
+        }
 
     } catch (error) {
         console.log(error);
@@ -130,12 +127,14 @@ SeriesController.getSerieByTopRating = async (req, res) => {
 
     try {
 
-        await Serie.find({
-            rating: 5
+        let foundSerie = await Serie.find({
+            rating: "5"
         })
-            .then(foundSerie => {
+            if(foundSerie.length > 0) {
                 res.send(foundSerie)
-            })
+            } else {
+                res.send({ "Message": "Titulo o genero no encontrados" })
+            }
 
     } catch (error) {
         console.log(error);
@@ -146,12 +145,14 @@ SeriesController.getSerieByBroadcast = async (req, res) => {
 
     try {
 
-        await Serie.find({
+        let foundSerie = await Serie.find({
             broadcast: true
         })
-            .then(foundSerie => {
+            if(foundSerie.length > 0) {
                 res.send(foundSerie)
-            })
+            } else {
+                res.send({ "Message": "Titulo no encontrado" })
+            }
 
     } catch (error) {
         console.log(error);
@@ -162,12 +163,14 @@ SeriesController.getSerieByTheater = async (req, res) => {
 
     try {
 
-        await Serie.find({
+        let foundSerie = await Serie.find({
             theater: true
         })
-            .then(foundSerie => {
+            if(foundSerie.length > 0) {
                 res.send(foundSerie)
-            })
+            } else {
+                res.send({ "Message": "Titulo no encontrado" })
+            }
 
     } catch (error) {
         console.log(error);

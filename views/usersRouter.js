@@ -12,7 +12,8 @@ router.get("/getAll", UsersController.getAllUsers);
 router.put("/updateUser", UsersController.updateUser);
 router.delete("/deleteUser", UsersController.deleteUser);
 // Admin zone
-router.post("/admin/getAll", isAdmin, UsersController.getAllUsers);
+router.post("/admin", isAdmin, UsersController.getAllUsers);
+// router.post("/admin/getuserById/:id", isAdmin, UsersController.getUserById)
 
 
 

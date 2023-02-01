@@ -22,4 +22,4 @@ app.use(router);
 dbconnect();
 
 
-app.listen(PORT, () => console.log("Servidor del proyecto de backend levantado"));
+exports.server = app.listen(PORT, () => console.log("Servidor del proyecto de backend levantado"));

@@ -6,13 +6,15 @@ const authConfig = require('../config/auth');
 const UsersController = {};
 
 UsersController.getAllUsers = async (req, res) => {
-
+    let rol = req.body.rol;
     try {
-        let result = await User.find({});
-        if (result.length > 0) {
-            res.send(result)
-        } else {
-            res.send({ "Message": "Usuario no encontrado" })
+        if (rol == "admin") {
+            let result = await User.find({});
+            if (result.length > 0) {
+                res.send(result)
+            } else {
+                res.send({ "Message": "Usuario no encontrado" })
+            }
         }
     } catch (error) {
         console.log(error);
@@ -20,9 +22,8 @@ UsersController.getAllUsers = async (req, res) => {
 };
 
 UsersController.getUserById = async (req, res) => {
-    let _id = req.params._id;
-    let user = req.user.usuario[0];
-    if (_id !== user._id) {
+    let rol = req.body.rol;
+    if (rol !== "admin") {
 
         res.send({ "Msg": "Acceso no autorizado" });
     } else {
@@ -41,7 +42,7 @@ UsersController.getUsersByName = async (req, res) => {
     const name = req.body.name;
 
     try {
-        const foundUsers = await User.find ({name: name})
+        const foundUsers = await User.find({ name: name })
         res.send(foundUsers)
     } catch (error) {
         console.log(error);
@@ -57,8 +58,7 @@ UsersController.newUser = async (req, res) => {
         let user = await User.create({
             name: req.body.name,
             email: req.body.email,
-            password: password,
-            rol: req.body.rol,
+            password: password
         })
 
         if (user) {
@@ -118,13 +118,13 @@ UsersController.loginUser = async (req, res) => {
             email: req.body.email
         })
         if (userFound) {
-            
+
             if (userFound[0].email === undefined) {
                 res.send("Contraseña o usuario incorrecto");
             } else {
                 if (bcrypt.compareSync(req.body.password, userFound[0].password)) {
                     console.log(userFound[0])
-                    let token = jsonwebtoken.sign( {id:userFound[0]._id, rol:userFound[0].rol } , authConfig.SECRET, {
+                    let token = jsonwebtoken.sign({ id: userFound[0]._id, rol: userFound[0].rol }, authConfig.SECRET, {
                         expiresIn: authConfig.EXPIRES
                     });
                     let loginOk = `Bienvenido de nuevo, ${userFound[0].name}`;

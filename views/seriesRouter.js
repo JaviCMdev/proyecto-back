@@ -8,10 +8,10 @@ router.get("/getAll", SeriesController.getAllSeries);
 router.post("/newSerie", SeriesController.newSerie);
 router.put("/updateSerie", SeriesController.updateSerie);
 router.delete("/deleteSerie", SeriesController.deleteSerie);
-router.get("/name/:title", SeriesController.getSerieByName);
-router.post("/id/", SeriesController.getSerieById);
-router.post("/toprated/", SeriesController.getSerieByTopRating);
-router.post("/broadcast/", SeriesController.getSerieByBroadcast);
-router.post("/theater/", SeriesController.getSerieByTheater);
+router.get("/name", SeriesController.getSerieByNameOrGenre);
+router.get("/id/:_id", SeriesController.getSerieById);
+router.get("/toprated/", SeriesController.getSerieByTopRating);
+router.get("/broadcast/", SeriesController.getSerieByBroadcast);
+router.get("/theater/", SeriesController.getSerieByTheater);
 
 module.exports = router;
