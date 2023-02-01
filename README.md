@@ -1,4 +1,4 @@
-# Proyecto Backend API"
+# Proyecto Backend API
 **Proyecto**
 - En este proyecto vamos a usar funciones de JavaScript para realizar una serie de endpoints a una base de datos usando como referencia la aplicacion "Postman". En esta ocasion no va a ser obligatorio que un usuario este logueado para poder ver el catalogo de las peliculas y series, pero esta funcion esta añadida y comentada en el codigo.
 
