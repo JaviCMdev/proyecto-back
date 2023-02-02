@@ -31,6 +31,9 @@ const serieSchema = new Schema ({
     },
     description: {
         type: String,
+    },
+    poster_path: {
+        type: String,
     }
 });
 

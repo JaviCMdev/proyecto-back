@@ -2,35 +2,22 @@ const Serie = require('../models/serie');
 
 const SeriesController = {};
 
-SeriesController.getAllSeries = async (req, res) => {
-
-    try {
-        let result = await Serie.find({});
-        if (result.length > 0) {
-            res.send(result)
-        } else {
-            res.send({ "Message": "No hemos podido encontrar la serie" })
-        }
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-SeriesController.newSerie = async (req, res) => {
+SeriesController.newSerie = async (moviedata) => {
 
     try {
         let serie = await Serie.create({
-            title: req.body.title,
-            duration: req.body.duration,
-            broadcast: req.body.broadcast,
-            theater: req.body.theater,
-            genre: req.body.genre,
-            year: req.body.year,
-            rating: req.body.rating,
-            description: req.body.description
+            title: moviedata.title,
+            duration: moviedata.duration,
+            broadcast: moviedata.broadcast,
+            theater: moviedata.theater,
+            genre: moviedata.genre,
+            year: moviedata.year,
+            rating: moviedata.rating,
+            description: moviedata.description,
+            poster_path: moviedata.poster_path
         })
         if (serie) {
-            res.send({ "Message": `La serie: ${serie.title} ha sido añadida correctamente` })
+            return ({ "Message": `La serie: ${serie.title} ha sido añadida correctamente` })
         }
     } catch (error) {
         console.log(error)
@@ -86,17 +73,22 @@ SeriesController.deleteSerie = async (req, res) => {
     }
 };
 
-SeriesController.getSerieByNameOrGenre = async (req, res) => {
+SeriesController.getAllSeries = async (search) => {
 
     const filter = {}
 
     try {
-        if (req.query.title) filter.title = new RegExp(req.query.title, "i")
-        if (req.query.genre) filter.genre = new RegExp(req.query.genre, "i")
-        let foundSerie = await Serie.find(filter)
-        res.json(foundSerie)
+        if (search.title) filter.title = new RegExp(search.title, "i")
+        if (search.genre) filter.genre = new RegExp(search.genre, "i")
+        let foundSerie = await Serie.find({
+            $or:[
+                { "title": filter.title },
+                { "genre": filter.genre }
+            ]
+            })
+        return (foundSerie)
     } catch (error) {
-        res.json({ error: error.message });
+        return ({ error: error.message });
     }
 }
 
@@ -170,6 +162,28 @@ SeriesController.getSerieByTheater = async (req, res) => {
 
     } catch (error) {
         console.log(error);
+    }
+}
+
+SeriesController.postCollectionSeries = async (req, res) => {
+
+    //     try {
+    //     req.body.forEach( (serie)=> SeriesController.newSerie(serie.body, res))
+    //     console.log("el body", req.body)
+    //     console.log("request body aqui", req.body[0].title)
+    //     } catch (error) {
+    //         res.json({ error: error.message });
+    //     }
+    // }
+
+    try {
+        const data = req.body
+        for (let i = 0; data.length < i; i++) {
+            req.body = data[i]
+            SeriesController.newSerie(req, res)
+        }
+    } catch (e) {
+        res.json({ error: e.message });
     }
 }
 
