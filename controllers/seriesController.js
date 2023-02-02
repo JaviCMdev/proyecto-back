@@ -91,6 +91,16 @@ SeriesController.getAllSeries = async (search) => {
         return ({ error: error.message });
     }
 }
+SeriesController.getSeries = async () => {
+
+    try {
+        let foundSerie = await Serie.find({
+            })
+        return (foundSerie)
+    } catch (error) {
+        return ({ error: error.message });
+    }
+};
 
 SeriesController.getSerieById = async (req, res) => {
 

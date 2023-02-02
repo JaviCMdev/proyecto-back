@@ -5,8 +5,11 @@ const router = express.Router();
 const SeriesController = require('../controllers/seriesController');
 
 // Get all series
-router.get("/getAll", async (req, res) => {
+router.get("/getAllSeries", async (req, res) => {
     res.json(await SeriesController.getAllSeries(req.query))
+});
+router.get("/getAll", async (req, res) => {
+    res.json(await SeriesController.getSeries())
 });
 // Create a new serie
 router.post("/newSerie", async (req, res) => {
