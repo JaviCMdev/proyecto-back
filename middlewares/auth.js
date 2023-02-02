@@ -1,5 +1,5 @@
 const jsonwebtoken = require("jsonwebtoken");
-const authConfig = require("../config/auth");
+const authConfig = require("../config/config");
 
 module.exports = (req, res, next) => {
     if(!req.headers.authorization) {

@@ -1,11 +1,12 @@
+require('dotenv').config()
 const express = require('express');
 const dbconnect = require('./db/dbconnect');
 const router = require('./router');
 const cors = require('cors');
+const config = require('./config/config')
 
 const app = express();
 
-const PORT = 5500;
 
 //Configuro cors
 let corsOptions = {
@@ -22,4 +23,4 @@ app.use(router);
 dbconnect();
 
 
-exports.server = app.listen(PORT, () => console.log("Servidor del proyecto de backend levantado"));
+exports.server = app.listen(config.PORT, () => console.log("Servidor del proyecto de backend levantado"));

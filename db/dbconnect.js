@@ -3,10 +3,10 @@ const dbconnect = () => {
     const mongoose = require("mongoose");
     mongoose.set('strictQuery', true);
 
-    const conn_str = `mongodb+srv://super_patatita:packardbell3@cluster0.lm8gpwo.mongodb.net/?retryWrites=true&w=majority`;
+    const { DB } = require("../config/config");
 
     mongoose.connect(
-        conn_str,
+        DB,
         {
             useNewUrlParser: true,
             useUnifiedTopology: true

@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jsonwebtoken = require('jsonwebtoken');
-const authConfig = require('../config/auth');
+const authConfig = require('../config/config');
 
 const UsersController = {};
 
